@@ -1,5 +1,5 @@
 const dgram = require('dgram');
-const protocol = require('../../protocol/musician-protocol');
+const protocol = require('../../protocol/orchestra-protocol');
 
 const socket = dgram.createSocket('udp4');
 
@@ -27,7 +27,7 @@ class Musician {
     const payload = JSON.stringify(music);
 
     const message = Buffer.from(payload);
-    socket.send(message, 0, message.length, protocol.PROTOCOL_PORT,
+    socket.send(message, 0, message.length, protocol.PROTOCOL_UDP_PORT,
       protocol.PROTOCOL_MULTICAST_ADDRESS,
       (err, bytes) => {
         console.log(`Sending payload: ${payload} via port ${socket.address().port}`);
@@ -38,7 +38,7 @@ class Musician {
 const instrument = process.argv[2];
 
 try {
-  Musician(instrument);
+  let m = new Musician(instrument);
 } catch (error) {
   console.log(error);
 }
