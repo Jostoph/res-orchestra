@@ -1,5 +1,5 @@
 const dgram = require('dgram');
-const protocol = require('./musician-protocol');
+const protocol = require('../../protocol/musician-protocol');
 
 const socket = dgram.createSocket('udp4');
 
