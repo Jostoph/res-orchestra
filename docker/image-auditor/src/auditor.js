@@ -2,14 +2,6 @@ const dgram = require('dgram');
 const net = require('net');
 const uuid = require('uuid');
 
-let musicians = [];
-
-class MusicianInfo {
-  constructor(port, address, instrument) {
-
-  }
-}
-
 const protocol = require('../../protocol/orchestra-protocol');
 
 const udpSocket = dgram.createSocket('udp4');
