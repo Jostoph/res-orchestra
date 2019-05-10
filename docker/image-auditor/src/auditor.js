@@ -13,7 +13,7 @@ server.listen(protocol.PROTOCOL_TCP_PORT, 'localhost', () => {
 });
 
 server.on('connection', (socket) => {
-  console.log(`Connection from add: ${socket.remoteAddress} port: ${socket.remotePort}`);
+  console.log(`Connection from addr: ${socket.remoteAddress} port: ${socket.remotePort}`);
 
   clients.push(socket);
 
@@ -32,7 +32,8 @@ server.on('connection', (socket) => {
   socket.write(msg);
   socket.write('\r\n');
   socket.end();
-  
+  console.log(`Closed connection with addr: ${socket.remoteAddress} port: ${socket.remotePort}`);
+
   clients.splice(clients.indexOf(socket), 1);
 });
 
@@ -78,5 +79,5 @@ udpSocket.on('message', (msg, source) => {
     musicians.set(id, new MusicianInfo(sounds.get(sound)));
   }
 
-  console.log(musicians);
+  // console.log(musicians);
 });

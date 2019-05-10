@@ -33,7 +33,7 @@ class Musician {
     socket.send(message, 0, message.length, protocol.PROTOCOL_UDP_PORT,
       protocol.PROTOCOL_MULTICAST_ADDRESS,
       (err, bytes) => {
-        console.log(`Sending payload: ${payload} via port ${socket.address().port}`);
+        // console.log(`Sending payload: ${payload} via port ${socket.address().port}`);
       });
   }
 }
