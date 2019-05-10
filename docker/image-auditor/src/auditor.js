@@ -48,6 +48,7 @@ class MusicianInfo {
   constructor(instrument) {
     this.instrument = instrument;
     this.activeSince = new Date();
+    this.lastActivation = this.activeSince;
   }
 }
 
@@ -61,7 +62,7 @@ udpSocket.bind(protocol.PROTOCOL_UDP_PORT, () => {
 function removeInactiveMusicians() {
   let currentDate = new Date();
   for(let entry of musicians.entries()) {
-    if (currentDate.getTime() - entry[1].activeSince.getTime() > 5000) {
+    if (currentDate.getTime() - entry[1].lastActivation.getTime() > 5000) {
       musicians.delete(entry[0]);
     }
   }
@@ -74,7 +75,7 @@ udpSocket.on('message', (msg, source) => {
   const { id, sound } = obj;
 
   if (musicians.has(id)) {
-    musicians.get(id).activeSince = new Date();
+    musicians.get(id).lastActivation = new Date();
   } else {
     musicians.set(id, new MusicianInfo(sounds.get(sound)));
   }
