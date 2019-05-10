@@ -1,4 +1,5 @@
 const dgram = require('dgram');
+const uuid = require('uuid/v1');
 const protocol = require('../../protocol/orchestra-protocol');
 
 const socket = dgram.createSocket('udp4');
@@ -16,12 +17,14 @@ class Musician {
       throw Error(`error : invalid instrument : ${instrument}`);
     }
 
+    this.id = uuid();
     this.instrument = instrument;
     setInterval(this.play.bind(this), 1000);
   }
 
   play() {
     const music = {
+      id: this.id,
       sound: instruments.get(this.instrument),
     };
     const payload = JSON.stringify(music);
