@@ -8,7 +8,7 @@ const server = net.createServer();
 
 const clients = [];
 
-server.listen(protocol.PROTOCOL_TCP_PORT, 'localhost', () => {
+server.listen(protocol.PROTOCOL_TCP_PORT, () => {
   console.log('TCP server is running...');
 });
 
