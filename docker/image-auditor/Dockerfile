@@ -1,4 +1,4 @@
-FROM node:8.11.3
+FROM node:8
 MAINTAINER Jostoph
 
 COPY src /opt/app/
@@ -8,4 +8,4 @@ RUN npm install
 
 EXPOSE 2205
 
-ENTRYPOINT ["node", "/opt/app/auditor.js"]
+CMD ["node", "/opt/app/auditor.js"]

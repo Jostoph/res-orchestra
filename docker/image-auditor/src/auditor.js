@@ -4,9 +4,9 @@ const net = require('net');
 const protocol = require('./protocol/orchestra-protocol');
 
 const udpSocket = dgram.createSocket('udp4');
-const server = net.createServer()
+const server = net.createServer();
 
-const clients = []
+const clients = [];
 
 server.listen(protocol.PROTOCOL_TCP_PORT, 'localhost', () => {
   console.log('TCP server is running...');
@@ -17,9 +17,9 @@ server.on('connection', (socket) => {
 
   clients.push(socket);
 
-  const musicianList = []
+  const musicianList = [];
   let obj;
-  for(let entry of musicians.entries()) {
+  for (let entry of musicians.entries()) {
     obj = {
       uuid : entry[0],
       instrument : entry[1].instrument,
