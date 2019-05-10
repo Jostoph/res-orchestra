@@ -1,7 +1,7 @@
 const dgram = require('dgram');
 const net = require('net');
 
-const protocol = require('../../protocol/orchestra-protocol');
+const protocol = require('./protocol/orchestra-protocol');
 
 const udpSocket = dgram.createSocket('udp4');
 const server = net.createServer()

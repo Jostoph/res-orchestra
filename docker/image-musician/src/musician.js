@@ -1,6 +1,6 @@
 const dgram = require('dgram');
 const uuid = require('uuid/v1');
-const protocol = require('../../protocol/orchestra-protocol');
+const protocol = require('./protocol/orchestra-protocol');
 
 const socket = dgram.createSocket('udp4');
 
