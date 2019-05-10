@@ -8,4 +8,4 @@ RUN npm install
 
 EXPOSE 2205
 
-CMD ["node", "/opt/app/auditor.js"]
+ENTRYPOINT ["node", "/opt/app/auditor.js"]
